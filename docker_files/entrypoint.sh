@@ -14,7 +14,7 @@ function post_comment_to_gist() {
 
 gist_url="$@"
 # Handler for paperspace gradeint
-url=$(echo "$input_string" | grep -oE "https?://[a-zA-Z0-9./_-]+")
+url=$(echo "$gist_url" | grep -oE "https?://[a-zA-Z0-9./_-]+")
 
 if [ -z "$url" ]; then
   echo "No URL found in the input string."
