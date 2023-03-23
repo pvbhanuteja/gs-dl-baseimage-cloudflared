@@ -2,9 +2,7 @@ FROM paperspace/gradient-base:pt112-tf29-jax0317-py39-20230125
 
 ARG GH_GIST_ACCESS_TOKEN
 ENV GH_GIST_ACCESS_TOKEN=$GH_GIST_ACCESS_TOKEN
-RUN echo $GH_GIST_ACCESS_TOKEN
-COPY ./docker_files/testenv.sh /testenv.sh
-RUN /testenv.sh
+RUN echo "$GH_GIST_ACCESS_TOKEN"
 RUN apt-get update && \
 apt-get install -y curl && \
 apt-get install -y openssh-server && \

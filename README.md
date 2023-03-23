@@ -18,7 +18,7 @@ In this tutorial, we will go through the steps to set up a deep learning Docker 
 
 ## Accessing the Server
 
-1. Once your server is up and running, you can access it using the provided Cloudflare URL. The URL will be commented on your Github Gist URL automatically, or it can also be found in the Gradient Space logs. The first one is easier.
+1. Once your server is up and running, you can access it using the provided Cloudflare URL. The URL will be commented on your Github Gist URL automatically, or it can also be found in the Gradient Space logs. The first one is easier. **Remove the `https://` part from the URL.**
 2. In your local terminal, enter the following command, replacing `<path_to_cloudflared>` and `url` with the appropriate values:
 
 
@@ -26,11 +26,11 @@ For example:
 
 
 ```
-<path_to_cloudflared> access ssh -o StrictHostKeyChecking=no root@url
+ssh -o "ProxyCommand=<path_to_clodflared> access ssh --hostname %h" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@example.com
 
-opt/homebrew/bin/cloudflared access ssh -o StrictHostKeyChecking=no root@url
+For example:
 
-cloudflared access ssh -o StrictHostKeyChecking=no root@url
+ssh -o "ProxyCommand=cloudflared access ssh --hostname %h" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null user@finally-humans-faces-closed.trycloudflare.com
 ```
 
 
