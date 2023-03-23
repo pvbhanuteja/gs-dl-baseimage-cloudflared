@@ -75,7 +75,7 @@ https://www.loom.com/share/a3fce56c76984f81a051cbec27822576
 If you are using this on other cloud providers, you can use the following Docker image: `gs-dl-baseimage-cloudflared:latest` along with gist url while running the docker image.
 
 ```
-docker run -it gs-dl-baseimage-cloudflared:latest <GIST_URL>
+docker run -it pvbhanuteja/gs-dl-baseimage-cloudflared:latest <GIST_URL>
 ```
 
 
