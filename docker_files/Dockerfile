@@ -2,7 +2,7 @@
 FROM ubuntu:20.04
 ARG GH_GIST_ACCESS_TOKEN
 ENV GH_GIST_ACCESS_TOKEN=$GH_GIST_ACCESS_TOKEN
-RUN ECHO $GH_GIST_ACCESS_TOKEN
+RUN echo $GH_GIST_ACCESS_TOKEN
 COPY ./docker_files/testenv.sh /testenv.sh
 RUN /testenv.sh
 RUN apt-get update && \
