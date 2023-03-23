@@ -30,7 +30,7 @@ ssh -o "ProxyCommand=<path_to_clodflared> access ssh --hostname %h" -o StrictHos
 
 For example:
 
-ssh -o "ProxyCommand=cloudflared access ssh --hostname %h" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null user@finally-humans-faces-closed.trycloudflare.com
+ssh -o "ProxyCommand=cloudflared access ssh --hostname %h" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@finally-humans-faces-closed.trycloudflare.com
 ```
 
 
@@ -60,12 +60,24 @@ If you want to use your own domain instead of the provided Cloudflare URL, follo
 
 
 ```
-<path_to_cloudflared> access ssh -o StrictHostKeyChecking=no root@custom_domain
+ssh -o "ProxyCommand=<path_to_clodflared> access ssh --hostname %h" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@<YOUR_SUBDOMAIN_CREATED_ON_CLOUDFLARE>
 
-opt/homebrew/bin/cloudflared access ssh -o StrictHostKeyChecking=no root@gs.bhanu.cyou
+For example:
 
-cloudflared access ssh -o StrictHostKeyChecking=no root@gs.bhanu.cyou
+ssh -o "ProxyCommand=cloudflared access ssh --hostname %h" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@gs.bhanu.cyou
 ```
+
+## Short demo video 
+https://www.loom.com/share/a3fce56c76984f81a051cbec27822576
+
+## On Other Cloud Providers
+
+If you are using this on other cloud providers, you can use the following Docker image: `gs-dl-baseimage-cloudflared:latest` along with gist url while running the docker image.
+
+```
+docker run -it gs-dl-baseimage-cloudflared:latest <GIST_URL>
+```
+
 
 Congratulations! You have successfully set up a deep learning Docker image with GPU support and quick SSH access using Cloudflared.
 
