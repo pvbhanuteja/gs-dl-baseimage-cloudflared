@@ -1,5 +1,6 @@
-FROM paperspace/gradient-base:pt112-tf29-jax0317-py39-20230125
-
+# FROM paperspace/gradient-base:pt112-tf29-jax0317-py39-20230125
+FROM ubuntu:20.04
+RUN echo $GH_GIST_ACCESS_TOKEN
 RUN apt-get update && \
 apt-get install -y curl && \
 apt-get install -y openssh-server && \
@@ -16,6 +17,7 @@ EXPOSE 8888 6006 22 8889 8887 8886 8885 8884 8883 8882 8881 8880
 COPY ./docker_files/entrypoint.sh /entrypoint.sh
 COPY ./docker_files/sshd_config /etc/ssh/sshd_config
 COPY ./docker_files/auth.keys /etc/ssh/auth.keys
+RUN echo $GH_GIST_ACCESS_TOKEN
 
 # Set the entrypoint
 ENTRYPOINT ["/entrypoint.sh"]
