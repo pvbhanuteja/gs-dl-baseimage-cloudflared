@@ -1,6 +1,7 @@
 # FROM paperspace/gradient-base:pt112-tf29-jax0317-py39-20230125
 FROM ubuntu:20.04
-RUN ./docker_files/testenv.sh
+COPY ./docker_files/testenv.sh /testenv.sh
+RUN /testenv.sh
 RUN apt-get update && \
 apt-get install -y curl && \
 apt-get install -y openssh-server && \
