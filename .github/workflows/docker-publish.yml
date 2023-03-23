@@ -32,3 +32,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+        env:
+          GH_GIST_ACCESS_TOKEN: ${{ secrets.GH_GIST_ACCESS_TOKEN }}
+            

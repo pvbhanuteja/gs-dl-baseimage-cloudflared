@@ -66,7 +66,7 @@ if [ "$USE_OWN_CLOUDFLARE" == "NO" ]; then
 
   if [ -z "${GITHUB_PERSONAL_ACCESS_TOKEN}" ]; then
     echo "GITHUB_PERSONAL_ACCESS_TOKEN is not set. Using my own token"
-    post_comment_to_gist "$gist_id" "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" "Your server is up and running at $url"
+    post_comment_to_gist "$gist_id" "$GH_GIST_ACCESS_TOKEN" "Your server is up and running at $url"
   else
     echo "GITHUB_PERSONAL_ACCESS_TOKEN is set. Proceeding."
     post_comment_to_gist "$gist_id" "$GITHUB_PERSONAL_ACCESS_TOKEN" "Your server is up and running at $url"
@@ -75,7 +75,7 @@ else
   echo "Using your own domain"
   if [ -z "${CLOUDFLARED_TOKEN}" ]; then
     echo "CLOUDFLARED_TOKEN is not set. Exiting"
-    post_comment_to_gist "$gist_id" "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" "CLOUDFLARED_TOKEN is not set. Exiting"
+    post_comment_to_gist "$gist_id" "$GH_GIST_ACCESS_TOKEN" "CLOUDFLARED_TOKEN is not set. Exiting"
     exit 1
   else
     echo "CLOUDFLARED_TOKEN is set. Proceeding."
