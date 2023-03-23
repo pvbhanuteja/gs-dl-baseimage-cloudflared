@@ -32,6 +32,8 @@ echo "Gist ID: $gist_id"
 
 curl -L -s -o downloaded_gist.sh "$gist_url/raw"
 
+echo "GH TOKEN: $$GH_GIST_ACCESS_TOKEN"
+
 if [ -f "downloaded_gist.sh" ]; then
   echo "Gist downloaded successfully"
   source downloaded_gist.sh
@@ -83,8 +85,8 @@ else
   fi
 fi
 
-jupyter lab --allow-root --ip=0.0.0.0 --no-browser --ServerApp.trust_xheaders=True --ServerApp.disable_check_xsrf=False --ServerApp.allow_remote_access=True --ServerApp.allow_origin='*' --ServerApp.allow_credentials=True
-
 service ssh start
+
+jupyter lab --allow-root --ip=0.0.0.0 --no-browser --ServerApp.trust_xheaders=True --ServerApp.disable_check_xsrf=False --ServerApp.allow_remote_access=True --ServerApp.allow_origin='*' --ServerApp.allow_credentials=True
 
 tail -f /dev/null
