@@ -2,8 +2,6 @@
 
 **Note: This image was specifically made for Paperspace Gradient but can be used for any other cloud service provider that supports Docker images. Make modifications if needed. Has pytorch1.12, tf29, jax0317, py39 support**
 
-You can find github repo [here](https://github.com/pvbhanuteja/gs-dl-baseimage-cloudflared).
-
 Let's go through the steps to set up a deep learning Docker image with GPU support and how to quickly SSH into the server using Cloudflared if the server is not publicly accessible.
 
 ## Prerequisites
