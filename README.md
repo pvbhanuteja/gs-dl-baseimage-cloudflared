@@ -4,7 +4,7 @@
 
 You can find github repo [here](https://github.com/pvbhanuteja/gs-dl-baseimage-cloudflared).
 
-In this tutorial, we will go through the steps to set up a deep learning Docker image with GPU support and how to quickly SSH into the server using Cloudflared if the server is not publicly accessible.
+Let's go through the steps to set up a deep learning Docker image with GPU support and how to quickly SSH into the server using Cloudflared if the server is not publicly accessible.
 
 ## Prerequisites
 
